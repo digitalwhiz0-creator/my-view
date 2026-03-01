@@ -3,14 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Photo</title>
-    
+    <title>Shared Photo</title>
+
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vovn59tmej");
+    </script>
+
     <style>
-        body { margin: 0; padding: 0; background-color: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        img { max-width: 100%; height: auto; display: block; }
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: #000; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            overflow: hidden;
+        }
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            display: block;
+            /* Prevents casual right-click saving */
+            user-select: none;
+            -webkit-user-select: none;
+        }
     </style>
 </head>
 <body>
-    <img src="photo.jpg" alt="Shared Image">
+
+    <img src="IMG_20260201_063749.jpg" alt="Shared Image">
+
 </body>
 </html>
