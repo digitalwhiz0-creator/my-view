@@ -21,22 +21,45 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            min-height: 100vh; 
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 100%;
+            text-align: center;
+            cursor: zoom-in;
         }
         img { 
             max-width: 100%; 
             height: auto; 
-            display: block;
-            /* Prevents casual right-click saving */
+            transition: transform 0.3s ease;
             user-select: none;
             -webkit-user-select: none;
+        }
+        /* This class is triggered when they tap the photo */
+        .zoomed {
+            transform: scale(2.5); /* Makes it 2.5x bigger */
+            cursor: zoom-out;
         }
     </style>
 </head>
 <body>
 
-    <img src="IMG_20260201_063749.JPG" style="cursor: zoom-in;" onclick="this.style.width='200%'" alt="Shared Image">
+    <div class="container" onclick="toggleZoom(this)">
+        <img src="IMG_20260201_063749.jpg" id="target-photo" alt="Shared Image">
+    </div>
+
+    <script>
+        function toggleZoom(element) {
+            const img = document.getElementById('target-photo');
+            img.classList.toggle('zoomed');
+            
+            // Log a custom event so you see "Zoom Triggered" in Clarity timeline
+            if(window.clarity) {
+                window.clarity("event", "user_zoomed");
+            }
+        }
+    </script>
 
 </body>
 </html>
